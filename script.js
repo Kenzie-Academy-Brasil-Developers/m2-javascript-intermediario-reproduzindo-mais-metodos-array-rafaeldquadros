@@ -12,7 +12,7 @@ function forEach(array, callback) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
   let numero = array[i]
-  callback(numero)}
+  callback(numero,i,array)}
 }
 
 console.log(forEach(arrayForEach, callbackForEach));
@@ -66,7 +66,7 @@ function indexOf(array, pesquisa) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
     let itemDoArray = array[i]
-    if(pesquisa ==itemDoArray){
+    if(pesquisa == itemDoArray){
       return i
     }
   }
@@ -93,8 +93,8 @@ function includes(array, callback) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
     let itemDoArray = array[i]
-    let retorno     = callback(itemDoArray)
-    if(retorno == true){
+    let retorno     = callback(itemDoArray, i, array)
+    if(retorno){
       return array[i]
     }
   }
@@ -120,7 +120,7 @@ function some(array, callback) {
   let retorno = false
   for(let i = 0; i < array.length; i++){
     let itemDoArray = array[i]
-     retorno     = callback(itemDoArray)
+     retorno     = callback(itemDoArray, i, array)
     if(retorno){
       return retorno 
     }
@@ -152,3 +152,7 @@ function join(array, value) {
 console.log(join(arrayJoin, " "));
 console.log(join(arrayJoin, ""));
 console.log(join(arrayJoin, "-"));
+
+
+
+arrayJoin.find((element,index, array) => console.log(array))
