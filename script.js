@@ -80,28 +80,26 @@ console.log(indexOf(arrayIndexOf, 5));
 const arrayIncludes = [53, 2, "duck", NaN, 456, 7]; // array para iteração do método
 
 //callback que procura algum elemento no array maior que 500
-function callbackIncludesArray(element) {
-  return element > 500 && true;
-}
+// function callbackIncludesArray(element) {
+//   return element > 500 && true;
+// }
 
-//callback que procura no elemento string se o conjunto de caracteres é encontrado
-function callbackIncludesString(element) {
-  return element === "duck" && true;
-}
+// //callback que procura no elemento string se o conjunto de caracteres é encontrado
+// function callbackIncludesString(element) {
+//   return element === "duck" && true;
+// }
 
-function includes(array, callback) {
+function includes(array, pesquisa) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
-    let itemDoArray = array[i]
-    let retorno     = callback(itemDoArray, i, array)
-    if(retorno){
-      return array[i]
+    if(pesquisa == array[i]){
+      return true
     }
-  }
+  }return false
 }
 
-console.log(includes(arrayIncludes, callbackIncludesArray));
-console.log(includes(arrayIncludes, callbackIncludesString));
+console.log(includes(arrayIncludes, 53));
+console.log(includes(arrayIncludes, 0));
 
 //Método some --------
 const arrySome = [12, 82, 563, 414, null]; // array para iteração do método
@@ -141,9 +139,13 @@ function join(array, value) {
       stringDeRetorno += `${array[i]} `
     }
     else if(value == ""){
-      stringDeRetorno +=array[i]
-    }else{
-      stringDeRetorno +=`${array[i]}-`
+      stringDeRetorno += array[i]
+    }
+    else if(value == "-"){
+      if(i == 2){
+        stringDeRetorno += array[i]
+      }else{
+      stringDeRetorno += array[i] + `-`}
     }
   }return stringDeRetorno
   //sua lógica aqui
@@ -152,7 +154,3 @@ function join(array, value) {
 console.log(join(arrayJoin, " "));
 console.log(join(arrayJoin, ""));
 console.log(join(arrayJoin, "-"));
-
-
-
-arrayJoin.find((element,index, array) => console.log(array))
