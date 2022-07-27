@@ -40,7 +40,7 @@ function find(array, callback) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
     let numero  = array[i]
-    if(callback(numero) == true){
+    if(callback(numero,i,array)){
       return array[i]
     }
   }
@@ -53,27 +53,27 @@ console.log(find(arrayFind, callbackFindTwo));
 const arrayIndexOf = [595, 206, "apollo", false, null, undefined, 8]; // array para iteração do método
 
 //primeira callback que procura algum elemento que seja uma string
-function callbackIndexOf(element) {
-  return typeof element === "string" && true;
-}
+// function callbackIndexOf(element) {
+//   return typeof element === "string" && true;
+// }
 
-//segunda callback que testa se existe algum elemento igual a 3 no array
-function callbackIndexOfTwo(element) {
-  return element == 3 && true;
-}
+// //segunda callback que testa se existe algum elemento igual a 3 no array
+// function callbackIndexOfTwo(element) {
+//   return element == 3 && true;
+// }
 
-function indexOf(array, callback) {
+function indexOf(array, pesquisa) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
     let itemDoArray = array[i]
-    let retorno     = callback(itemDoArray)
-    if(retorno == true){
-      return array[i]
+    if(pesquisa ==itemDoArray){
+      return i
     }
   }
+  return -1
 }
-console.log(indexOf(arrayIndexOf, callbackIndexOf));
-console.log(indexOf(arrayIndexOf, callbackIndexOfTwo));
+console.log(indexOf(arrayIndexOf, 595));
+console.log(indexOf(arrayIndexOf, 5));
 
 //Método Includes --------
 
