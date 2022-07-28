@@ -135,17 +135,11 @@ const arrayJoin = ["Fogo", "no", "Parquinho"]; // array para iteração do méto
 function join(array, value) {
   let stringDeRetorno = ""
   for(let i = 0; i < array.length; i++){
-    if(value == " "){
-      stringDeRetorno += `${array[i]} `
-    }
-    else if(value == ""){
+    if(i == array.length - 1){
       stringDeRetorno += array[i]
     }
-    else if(value == "-"){
-      if(i == 2){
-        stringDeRetorno += array[i]
-      }else{
-      stringDeRetorno += array[i] + `-`}
+    else{
+      stringDeRetorno += array[i] + value
     }
   }return stringDeRetorno
   //sua lógica aqui
