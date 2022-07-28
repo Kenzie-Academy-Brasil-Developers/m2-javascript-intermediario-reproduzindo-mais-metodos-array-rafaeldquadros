@@ -79,7 +79,7 @@ console.log(indexOf(arrayIndexOf, 5));
 
 const arrayIncludes = [53, 2, "duck", NaN, 456, 7]; // array para iteração do método
 
-//callback que procura algum elemento no array maior que 500
+// callback que procura algum elemento no array maior que 500
 // function callbackIncludesArray(element) {
 //   return element > 500 && true;
 // }
@@ -92,7 +92,7 @@ const arrayIncludes = [53, 2, "duck", NaN, 456, 7]; // array para iteração do 
 function includes(array, pesquisa) {
   //sua lógica aqui
   for(let i = 0; i < array.length; i++){
-    if(pesquisa == array[i]){
+    if(pesquisa == array[i] && typeof pesquisa == typeof array[i]){
       return true
     }
   }return false
